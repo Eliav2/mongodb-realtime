@@ -1,9 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-
 const socket = new WebSocket('ws://localhost:8080');
 const messages = document.getElementById('messages');
 
@@ -24,17 +18,3 @@ function sendMessage() {
         messageInput.value = '';
     }
 }
-
-function App() {
-
-  return (
-    <>
-        <input type="text" id="messageInput" placeholder="Type a message..."></input>
-        <button onClick={sendMessage}>Send</button>
-        <ul id="messages"></ul>
-
-    </>
-  )
-}
-
-export default App

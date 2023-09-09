@@ -5,7 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm --filter \"@mongodb-realtime/server\" build",
+    "build-watch": "pnpm run --filter @mongodb-realtime/* build-watch"
   },
   "keywords": [],
   "author": "",

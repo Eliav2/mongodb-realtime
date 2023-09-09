@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="renamed from mongo-realtime to mongodb-realtime">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/mongodb-realtime/server/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="docs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,25 +29,25 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/eliav/development/mongodb-realtime-listener/packages/mongo-realtime/server/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "prettierjs.PrettierConfiguration.Package": "/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime-listener/demos/vitejs-backend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/eliav/development/trys/try-bun-vitejs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/eliav/development/mongodb-realtime-listener/demos/vitejs-backend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -77,13 +74,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev - vitejs-frontend">
+  <component name="RunManager" selected="npm.build (1)">
     <configuration name="All Tests" type="JavaScriptTestRunnerVitest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="build-watch" type="js.build_tools.npm" folderName="mongo-realtime-server" temporary="true" nameIsGenerated="true">
@@ -107,14 +114,16 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="npm.build-watch" />
       <item itemvalue="npm.dev - vitejs-frontend" />
       <item itemvalue="npm.dev - vitejs-backend" />
+      <item itemvalue="npm.build (1)" />
       <item itemvalue="npm.build" />
-      <item itemvalue="npm.build-watch" />
       <item itemvalue="Vitest.All Tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build (1)" />
         <item itemvalue="npm.build-watch" />
         <item itemvalue="npm.build" />
       </list>
@@ -129,7 +138,8 @@
       <option name="presentableId" value="Default" />
       <updated>1694207169389</updated>
       <workItem from="1694207171732" duration="20533000" />
-      <workItem from="1694278324727" duration="9895000" />
+      <workItem from="1694278324727" duration="12541000" />
+      <workItem from="1694292970620" duration="317000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -243,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694285915478</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="docs">
+      <option name="closed" value="true" />
+      <created>1694289052797</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694289052797</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +271,8 @@
     <MESSAGE value="." />
     <MESSAGE value="seperated packages from demos" />
     <MESSAGE value="renamed from mongo-realtime to mongodb-realtime" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed from mongo-realtime to mongodb-realtime" />
+    <MESSAGE value="docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,6 @@
-import { Socket } from "socket.io";
+import { Server as IOServer, Socket } from "socket.io";
 
-class WatchingClients {
+class WatchingIOServer {
   // store a map that says per collection which socket is watching it
   collections: {
     [collectionName: string]: Set<string>; //socketIds that are watching this collection
@@ -12,10 +12,40 @@ class WatchingClients {
       socket: Socket;
     };
   };
+  ioServer: IOServer;
 
-  constructor() {
+  initIOServer(ServerOptions?: any) {
+    const io = new IOServer(ServerOptions);
+
+    io.on("connection", (socket) => {
+      // console.log("watchingClients", this);
+      console.log("New client connected");
+      socket.on("message", (message) => {
+        console.log("message received: " + message);
+        socket.broadcast.emit("message", message);
+        // this.ioServer.clients.forEach((client) => {
+        //   if (client !== socket && client.readyState === WebSocket.OPEN) {
+        //     client.send(message);
+        //   }
+        // });
+      });
+      socket.on("watch", ({ collectionName }) => {
+        console.log("watching collection", collectionName);
+        this.watchCollection(collectionName, socket.id, socket);
+      });
+      socket.on("disconnect", () => {
+        console.log(`User with socket ID ${socket.id} disconnected`);
+        // Remove the socket from the connectedClients object when a client disconnects
+        this.unregisterSocket(socket.id);
+      });
+    });
+    return io;
+  }
+
+  constructor(ServerOptions?: any) {
     this.collections = {};
     this.sockets = {};
+    this.ioServer = this.initIOServer(ServerOptions);
   }
 
   watchCollection(collectionName: string, socketId: string, socket: Socket) {
@@ -57,4 +87,4 @@ class WatchingClients {
   }
 }
 
-export default WatchingClients;
+export default WatchingIOServer;

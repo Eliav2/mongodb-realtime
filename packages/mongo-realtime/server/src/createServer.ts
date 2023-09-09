@@ -1,51 +1,44 @@
 import { MongoClient, MongoClientOptions } from "mongodb";
 import { streamChanges, watchCollection } from "./watchCollection";
-import { Server as IOServer, Socket } from "socket.io";
-import WatchingClients from "./WatchingClients";
-
-// Object to store connected clients
-const watchingClients = new WatchingClients();
-
-interface User {
-  name: string;
-  age: number;
-}
-
-let users: User[] = [];
+import { Server as IOServer, ServerOptions, Socket } from "socket.io";
+import WatchingIOServer from "./WatchingIOServer";
 
 const createServer = ({
   mongoUri,
   mongoDriverOptions = {},
-  scoketioOptions = {},
+  ServerOptions = {},
 }: {
   mongoUri: string;
   mongoDriverOptions?: MongoClientOptions;
-  scoketioOptions?: any;
+  ServerOptions?: any;
 }) => {
+  // Object to store connected clients
+  const watchingIOServer = new WatchingIOServer(ServerOptions);
+
   console.log("creating server");
-  const io = new IOServer(scoketioOptions);
-  io.on("connection", (socket) => {
-    console.log("watchingClients", watchingClients);
-    console.log("New client connected");
-    socket.on("message", (message) => {
-      console.log("message received: " + message);
-      socket.broadcast.emit("message", message);
-      // io.clients.forEach((client) => {
-      //   if (client !== socket && client.readyState === WebSocket.OPEN) {
-      //     client.send(message);
-      //   }
-      // });
-    });
-    socket.on("watch", ({ collectionName }) => {
-      console.log("watching collection", collectionName);
-      watchingClients.watchCollection(collectionName, socket.id, socket);
-    });
-    socket.on("disconnect", () => {
-      console.log(`User with socket ID ${socket.id} disconnected`);
-      // Remove the socket from the connectedClients object when a client disconnects
-      watchingClients.unregisterSocket(socket.id);
-    });
-  });
+  // const io = new IOServer(ServerOptions);
+  // io.on("connection", (socket) => {
+  //   console.log("watchingClients", watchingClients);
+  //   console.log("New client connected");
+  //   socket.on("message", (message) => {
+  //     console.log("message received: " + message);
+  //     socket.broadcast.emit("message", message);
+  //     // io.clients.forEach((client) => {
+  //     //   if (client !== socket && client.readyState === WebSocket.OPEN) {
+  //     //     client.send(message);
+  //     //   }
+  //     // });
+  //   });
+  //   socket.on("watch", ({ collectionName }) => {
+  //     console.log("watching collection", collectionName);
+  //     watchingClients.watchCollection(collectionName, socket.id, socket);
+  //   });
+  //   socket.on("disconnect", () => {
+  //     console.log(`User with socket ID ${socket.id} disconnected`);
+  //     // Remove the socket from the connectedClients object when a client disconnects
+  //     watchingClients.unregisterSocket(socket.id);
+  //   });
+  // });
 
   const mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
 
@@ -73,7 +66,7 @@ const createServer = ({
 
     streamChanges(usersCollection, (change) => {
       console.log("users collection updated");
-      watchingClients.pushChange("users", change);
+      watchingIOServer.pushChange("users", change);
       // io.emit("users", users);
     });
   };
@@ -82,6 +75,6 @@ const createServer = ({
     initializeMongo();
   });
 
-  return io;
+  return watchingIOServer;
 };
 export default createServer;

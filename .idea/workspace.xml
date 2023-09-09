@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="seperated packages from demos">
+    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="renamed from mongo-realtime to mongodb-realtime">
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/mongodb-realtime/server/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongo-realtime/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694207169389</updated>
       <workItem from="1694207171732" duration="20533000" />
-      <workItem from="1694278324727" duration="7276000" />
+      <workItem from="1694278324727" duration="9895000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -233,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694285092677</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="renamed from mongo-realtime to mongodb-realtime">
+      <option name="closed" value="true" />
+      <created>1694285915478</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694285915478</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +252,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
     <MESSAGE value="seperated packages from demos" />
-    <option name="LAST_COMMIT_MESSAGE" value="seperated packages from demos" />
+    <MESSAGE value="renamed from mongo-realtime to mongodb-realtime" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed from mongo-realtime to mongodb-realtime" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

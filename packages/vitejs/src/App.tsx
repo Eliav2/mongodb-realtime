@@ -1,40 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { io } from "socket.io-client";
+import { useEffect, useState } from "react";
+// "undefined" means the URL will be computed from the `window.location` object
+const URL = "http://localhost:8080";
 
-
-const socket = new WebSocket('ws://localhost:8080');
-const messages = document.getElementById('messages');
-
-socket.addEventListener('message', async (event:MessageEvent) => {
-    const rawData:Blob = event.data;
-    const data = await rawData.text();
-    console.log('data', data)
-    const li = document.createElement('li');
-    li.textContent = data;
-    messages.appendChild(li);
-});
-
-function sendMessage() {
-    const messageInput = document.getElementById('messageInput');
-    const message = messageInput.value;
-    if (message) {
-        socket.send(message);
-        messageInput.value = '';
-    }
-}
+export const socket = io(URL);
 
 function App() {
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    function onConnect() {
+      setIsConnected(true);
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+    }
+
+    function onMessage(value) {
+      setMessages((previous) => [...previous, value]);
+    }
+
+    const onUsers = (users) => {
+      console.log("users updated", users);
+    };
+
+    socket.emit("watch", {
+      collectionName: "users",
+    });
+
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
+    socket.on("message", onMessage);
+    socket.on("users", onUsers);
+
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+      socket.off("foo", onMessage);
+      socket.off("users", onUsers);
+    };
+  }, []);
+
+  return (
+    <div className="App">
+      <ConnectionState isConnected={isConnected} />
+      <Events events={messages} />
+      <ConnectionManager />
+      <MyForm />
+    </div>
+  );
+}
+
+export function ConnectionState({ isConnected }) {
+  return <p>State: {"" + isConnected}</p>;
+}
+export function Events({ events }) {
+  return (
+    <ul>
+      {events.map((event, index) => (
+        <li key={index}>{event}</li>
+      ))}
+    </ul>
+  );
+}
+export function ConnectionManager() {
+  function connect() {
+    socket.connect();
+  }
+
+  function disconnect() {
+    socket.disconnect();
+  }
 
   return (
     <>
-        <input type="text" id="messageInput" placeholder="Type a message..."></input>
-        <button onClick={sendMessage}>Send</button>
-        <ul id="messages"></ul>
-
+      <button onClick={connect}>Connect</button>
+      <button onClick={disconnect}>Disconnect</button>
     </>
-  )
+  );
+}
+export function MyForm() {
+  const [value, setValue] = useState("");
+
+  function onSubmit(event) {
+    event.preventDefault();
+
+    socket.emit("message", value);
+  }
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input onChange={(e) => setValue(e.target.value)} />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
 
-export default App
+export default App;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/mongodb-realtime-listener.iml" filepath="$PROJECT_DIR$/.idea/mongodb-realtime-listener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mongodb-realtime.iml" filepath="$PROJECT_DIR$/.idea/mongodb-realtime.iml" />
     </modules>
   </component>
 </project>

@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/packages/client-react/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client-react/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client-react/src/mongoRealtimeProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client-react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client-react/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +66,8 @@
       <recent name="$PROJECT_DIR$/packages/mongo-realtime/server/src" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" />
+      <recent name="$PROJECT_DIR$/packages/client-react/src/mongoRealtimeProvider.tsx" />
       <recent name="$PROJECT_DIR$/packages/vitejs-backend/src/watchCollection.ts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -138,7 +136,7 @@
       <workItem from="1694207171732" duration="20533000" />
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
-      <workItem from="1694293628988" duration="2815000" />
+      <workItem from="1694293628988" duration="2955000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -276,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694293851056</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary=".">
+      <option name="closed" value="true" />
+      <created>1694296484770</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694296484770</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

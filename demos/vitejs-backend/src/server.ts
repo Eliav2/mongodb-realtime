@@ -1,4 +1,4 @@
-import { MongoRealtimeIOServer } from "@mongo-realtime/server";
+import { MongoRealtimeIOServer } from "@mongodb-realtime/server";
 
 const mongoRealtime = new MongoRealtimeIOServer({
   mongoUri: "mongodb://localhost:27017/realtime",

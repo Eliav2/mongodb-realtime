@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/packages/client-react/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/client-react/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/client-react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client-react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,25 +37,25 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/eliav/development/trys/try-bun-vitejs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/eliav/development/mongodb-realtime-listener/demos/vitejs-backend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/eliav/development/mongodb-realtime/packages/client-react",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -65,6 +66,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/client-react" />
       <recent name="$PROJECT_DIR$/packages/mongo-realtime/server/src" />
     </key>
     <key name="es6.move.members.recent.items">
@@ -82,7 +84,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build (1)">
+  <component name="RunManager" selected="npm.build-watch (1)">
     <configuration name="All Tests" type="JavaScriptTestRunnerVitest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
@@ -91,7 +93,7 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="build (1)" type="js.build_tools.npm" folderName="root" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -101,8 +103,8 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="build-watch" type="js.build_tools.npm" folderName="mongo-realtime-server" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/mongo-realtime/server/package.json" />
+    <configuration name="build-watch (1)" type="js.build_tools.npm" folderName="root" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build-watch" />
@@ -111,29 +113,17 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/mongo-realtime/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="npm.build-watch" />
       <item itemvalue="npm.dev - vitejs-frontend" />
       <item itemvalue="npm.dev - vitejs-backend" />
+      <item itemvalue="npm.build-watch (1)" />
       <item itemvalue="npm.build (1)" />
-      <item itemvalue="npm.build" />
       <item itemvalue="Vitest.All Tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build-watch (1)" />
         <item itemvalue="npm.build (1)" />
-        <item itemvalue="npm.build-watch" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -148,7 +138,7 @@
       <workItem from="1694207171732" duration="20533000" />
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
-      <workItem from="1694293628988" duration="178000" />
+      <workItem from="1694293628988" duration="2815000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -278,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694293689691</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary=".">
+      <option name="closed" value="true" />
+      <created>1694293851056</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694293851056</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

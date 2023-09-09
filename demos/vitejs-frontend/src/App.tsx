@@ -1,32 +1,15 @@
 import "./App.css";
-import { io } from "socket.io-client";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  useMongoRealtimeProvider,
+  useWatchCollection,
+} from "@mongodb-realtime/client-react";
+
+// import { MongoRealtimeContext } from "./main.tsx";
 // "undefined" means the URL will be computed from the `window.location` object
-const URL = "http://localhost:8080";
-
-export const socket = io(URL);
-
-const useWatchCollection = (collectionName: string) => {
-  console.log("useWatchCollection", collectionName);
-  useEffect(() => {
-    socket.emit("watch", {
-      collectionName,
-    });
-    const onCollection = (update: any) => {
-      console.log(`${collectionName} updated`, update);
-    };
-    socket.on(collectionName, onCollection);
-
-    return () => {
-      socket.emit("unwatch", {
-        collectionName,
-      });
-      socket.off(collectionName, onCollection);
-    };
-  }, []);
-};
 
 function App() {
+  const socket = useMongoRealtimeProvider();
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [messages, setMessages] = useState([]);
 

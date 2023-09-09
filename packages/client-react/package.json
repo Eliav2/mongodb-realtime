@@ -2,11 +2,25 @@
   "name": "@mongodb-realtime/client-react",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build-watch": "tsc -w",
+    "prepack": "pnpm run build",
+    "_publish": "npm publish --access public"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.2"
+  }
 }

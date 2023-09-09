@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
       vitest:
         specifier: ^0.34.4
         version: 0.34.4
@@ -93,6 +96,9 @@ importers:
 
   demos/vitejs-frontend:
     dependencies:
+      '@mongodb-realtime/client-react':
+        specifier: workspace:*
+        version: link:../../packages/client-react
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -134,7 +140,18 @@ importers:
         specifier: ^4.4.5
         version: 4.4.9(@types/node@20.5.9)
 
-  packages/client-react: {}
+  packages/client-react:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      socket.io-client:
+        specifier: ^4.7.2
+        version: 4.7.2
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.21
+        version: 18.2.21
 
   packages/server:
     dependencies:

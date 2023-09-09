@@ -1,7 +1,20 @@
 import { Server as IOServer, Socket } from "socket.io";
-import { ChangeStream, Db, MongoClient, MongoClientOptions } from "mongodb";
+import {
+  ChangeStream,
+  Db,
+  Document,
+  Filter,
+  MongoClient,
+  MongoClientOptions,
+} from "mongodb";
 
-class MongoRealtimeIOServer {
+export type Client2ServerEvents<TSchema extends Document = Document> = {
+  watch: (args: { collectionName: string; filter?: Filter<TSchema> }) => void;
+  unwatch: (args: { collectionName: string }) => void;
+};
+export type Server2ClientEvents<TSchema extends Document = Document> = {};
+
+class MongoRealtimeIOServer<TSchema extends Document = Document> {
   // store a map that says per collection which socket is watching it
   collections: {
     [collectionName: string]: {
@@ -23,26 +36,29 @@ class MongoRealtimeIOServer {
   private autoConfigureCollections: boolean;
 
   initIOServer(ServerOptions?: any) {
-    const io = new IOServer(ServerOptions);
+    const io = new IOServer<Client2ServerEvents>(ServerOptions);
 
     io.on("connection", (socket) => {
       // console.log("watchingClients", this);
       console.log("New client connected");
-      socket.on("message", (message) => {
-        // console.log("message received: " + message);
-        socket.broadcast.emit("message", message);
-      });
+
       socket.on("watch", ({ collectionName }) => {
-        console.log("watching collection", collectionName);
+        console.log("watch event:watching collection", collectionName);
         this.watchCollection(collectionName, socket.id, socket);
       });
+
       socket.on("unwatch", ({ collectionName }) => {
-        // console.log("unwatching collection", collectionName);
+        console.log("unwatch event: unwatching collection", collectionName);
         this.unwatchCollection(collectionName, socket.id);
       });
-      socket.on("disconnect", () => {
+
+      // socket.on("disconnecting", () => {
+      //   console.log("disconnecting", socket.rooms); // the Set contains at least the socket ID
+      // });
+      socket.on("disconnecting", () => {
         // console.log(`User with socket ID ${socket.id} disconnected`);
         // Remove the socket from the connectedClients object when a client disconnects
+        console.log("socket disconnected", socket.id);
         this.unregisterSocket(socket.id);
       });
     });
@@ -78,9 +94,9 @@ class MongoRealtimeIOServer {
     // }, 2000);
   }
 
-  async _openChangeStream(collectionName: string) {
+  _openChangeStream(collectionName: string) {
     if (this.autoConfigureCollections) {
-      await this.db.command({
+      this.db.command({
         collMod: collectionName,
         validator: {},
         changeStreamPreAndPostImages: {
@@ -91,7 +107,7 @@ class MongoRealtimeIOServer {
 
     const changeStream = this.db.collection(collectionName).watch();
 
-    // console.log("registering changeStream for collection", collectionName);
+    console.log("registering changeStream for collection", collectionName);
     changeStream.on("change", (change) => {
       // console.log("change", change);
       // console.log("change occurred in collection", collectionName);
@@ -102,19 +118,15 @@ class MongoRealtimeIOServer {
   }
 
   async _closeChangeStream(collectionName: string) {
-    // console.log("unregistering changeStream for collection", collectionName);
+    console.log("unregistering changeStream for collection", collectionName);
     await this.collections[collectionName]["changeStream"].close();
   }
 
-  async watchCollection(
-    collectionName: string,
-    socketId: string,
-    socket: Socket,
-  ) {
+  watchCollection(collectionName: string, socketId: string, socket: Socket) {
     if (!this.collections[collectionName]) {
       this.collections[collectionName] = {
         socketIds: new Set(),
-        changeStream: await this._openChangeStream(collectionName),
+        changeStream: this._openChangeStream(collectionName),
       };
     }
     this.collections[collectionName]["socketIds"].add(socketId);
@@ -125,6 +137,7 @@ class MongoRealtimeIOServer {
       };
     }
     this.sockets[socketId].watchingOnCollections.add(collectionName);
+    // console.log("watchCollection end", this.collections);
   }
 
   unwatchCollection(collectionName: string, socketId: string) {

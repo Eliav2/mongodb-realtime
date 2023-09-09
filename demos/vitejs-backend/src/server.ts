@@ -8,4 +8,5 @@ const mongoRealtime = new MongoRealtimeIOServer({
     },
   },
 });
+// mongoRealtime.db.collection("test").find();
 mongoRealtime.ioServer.listen(8080);

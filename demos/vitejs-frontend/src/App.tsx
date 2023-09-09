@@ -14,7 +14,6 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useWatchCollection("users");
-  useWatchCollection("test");
   // useWatchCollection("posts");
 
   useEffect(() => {

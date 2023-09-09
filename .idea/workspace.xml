@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/packages/client-react/src/mongoRealtimeProvider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client-react/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client-react/src/mongoRealtimeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/mongoRealtimeProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     "WebServerToolWindowFactoryState": "false",
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/eliav/development/mongodb-realtime/packages/client-react",
+    "last_opened_file_path": "/home/eliav/development/justSplitIt",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,7 +137,7 @@
       <workItem from="1694207171732" duration="20533000" />
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
-      <workItem from="1694293628988" duration="2955000" />
+      <workItem from="1694293628988" duration="9997000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -282,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694296484770</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=".">
+      <option name="closed" value="true" />
+      <created>1694296591845</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694296591845</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,8 +308,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/demos/vitejs-backend/src/server.ts</url>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts</url>
+          <line>144</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts</url>
+          <line>51</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts</url>
+          <line>147</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

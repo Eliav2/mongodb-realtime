@@ -1,7 +1,7 @@
 import { MongoClient, MongoClientOptions } from "mongodb";
 import { streamChanges, watchCollection } from "./watchCollection";
 import { Server as IOServer, ServerOptions, Socket } from "socket.io";
-import WatchingIOServer from "./WatchingIOServer";
+import MongoRealtimeIOServer from "./MongoRealtimeIOServer";
 
 const createServer = ({
   mongoUri,
@@ -13,7 +13,11 @@ const createServer = ({
   ServerOptions?: any;
 }) => {
   // Object to store connected clients
-  const watchingIOServer = new WatchingIOServer(ServerOptions);
+  const watchingIOServer = new MongoRealtimeIOServer({
+    mongoUri,
+    mongoDriverOptions,
+    ServerOptions,
+  });
 
   console.log("creating server");
   // const io = new IOServer(ServerOptions);
@@ -43,7 +47,7 @@ const createServer = ({
   const mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
 
   const initializeMongo = async () => {
-    const db = mongoClient.db("realtime");
+    const db = mongoClient.db();
     const usersCollection = db.collection("users");
 
     // // enable preAndPostImages for change stream
@@ -64,7 +68,7 @@ const createServer = ({
       },
     });
 
-    streamChanges(usersCollection, (change) => {
+    const cs = streamChanges(usersCollection, (change) => {
       console.log("users collection updated");
       watchingIOServer.pushChange("users", change);
       // io.emit("users", users);
@@ -72,7 +76,7 @@ const createServer = ({
   };
 
   mongoClient.connect().then(async () => {
-    initializeMongo();
+    // initializeMongo();
   });
 
   return watchingIOServer;

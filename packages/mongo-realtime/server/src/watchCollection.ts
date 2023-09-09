@@ -104,7 +104,7 @@ export const streamChanges = (
     fullDocument: "updateLookup",
     fullDocumentBeforeChange: "whenAvailable",
   });
-  changeStream.on("change", (change) => {
+  return changeStream.on("change", (change) => {
     // console.log("change", change);
     console.log("change");
     onChange && onChange(change);

@@ -146,7 +146,7 @@
 import { createServer } from "@mongo-realtime/server";
 
 const watchingIOServer = createServer({
-  mongoUri: "mongodb://localhost:27017",
+  mongoUri: "mongodb://localhost:27017/realtime",
   ServerOptions: {
     cors: {
       origin: "http://localhost:5173",

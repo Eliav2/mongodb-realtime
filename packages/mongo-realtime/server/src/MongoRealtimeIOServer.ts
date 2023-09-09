@@ -1,9 +1,13 @@
 import { Server as IOServer, Socket } from "socket.io";
+import { ChangeStream, Db, MongoClient, MongoClientOptions } from "mongodb";
 
-class WatchingIOServer {
+class MongoRealtimeIOServer {
   // store a map that says per collection which socket is watching it
   collections: {
-    [collectionName: string]: Set<string>; //socketIds that are watching this collection
+    [collectionName: string]: {
+      socketIds: Set<string>; //socketIds that are watching this collection}
+      changeStream: ChangeStream;
+    };
   };
   // store a map that says per socket which collections it is watching
   sockets: {
@@ -13,6 +17,10 @@ class WatchingIOServer {
     };
   };
   ioServer: IOServer;
+  mongoClient: MongoClient;
+  db: Db;
+
+  private autoConfigureCollections: boolean;
 
   initIOServer(ServerOptions?: any) {
     const io = new IOServer(ServerOptions);
@@ -42,13 +50,56 @@ class WatchingIOServer {
     return io;
   }
 
-  constructor(ServerOptions?: any) {
+  constructor({
+    mongoUri,
+    mongoDriverOptions = {},
+    ServerOptions = {},
+    autoConfigureCollections = false,
+  }: {
+    mongoUri: string;
+    mongoDriverOptions?: MongoClientOptions;
+    ServerOptions?: any;
+
+    // should configure each watched collection automatically with 'changeStreamPreAndPostImages' https://www.mongodb.com/docs/manual/changeStreams/#change-streams-with-document-pre--and-post-images
+    autoConfigureCollections?: boolean;
+  }) {
     this.collections = {};
     this.sockets = {};
     this.ioServer = this.initIOServer(ServerOptions);
+    this.mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
+    this.db = this.mongoClient.db();
+    this.autoConfigureCollections = autoConfigureCollections;
   }
 
-  watchCollection(collectionName: string, socketId: string, socket: Socket) {
+  async _openChangeStream(collectionName: string) {
+    await this.db.command({
+      collMod: collectionName,
+      validator: {},
+      changeStreamPreAndPostImages: {
+        enabled: true,
+      },
+    });
+
+    const changeStream = this.db.collection(collectionName).watch();
+
+    // console.log("registering changeStream for collection", collectionName);
+    changeStream.on("change", (change) => {
+      // console.log("change", change);
+      this.pushChange(collectionName, change);
+    });
+
+    return changeStream;
+  }
+
+  _closeChangeStream(collectionName: string) {
+    this.collections[collectionName]["changeStream"].close();
+  }
+
+  async watchCollection(
+    collectionName: string,
+    socketId: string,
+    socket: Socket,
+  ) {
     // console.log(
     //   "registering socketId",
     //   socketId,
@@ -56,9 +107,12 @@ class WatchingIOServer {
     //   collectionName,
     // );
     if (!this.collections[collectionName]) {
-      this.collections[collectionName] = new Set();
+      this.collections[collectionName] = {
+        socketIds: new Set(),
+        changeStream: await this._openChangeStream(collectionName),
+      };
     }
-    this.collections[collectionName].add(socketId);
+    this.collections[collectionName]["socketIds"].add(socketId);
     if (!this.sockets[socketId]) {
       this.sockets[socketId] = {
         watchingOnCollections: new Set(),
@@ -73,18 +127,22 @@ class WatchingIOServer {
     if (!this.sockets[socketId]) return;
     const collections = this.sockets[socketId].watchingOnCollections;
     collections.forEach((collectionName) => {
-      this.collections[collectionName].delete(socketId);
+      this.collections[collectionName]["socketIds"].delete(socketId);
+      // close change stream if no more sockets are watching
+      if (this.collections[collectionName]["socketIds"].size === 0) {
+        this._closeChangeStream(collectionName);
+        delete this.collections[collectionName];
+      }
     });
     delete this.sockets[socketId];
   }
 
   pushChange(collectionName: string, change: any) {
-    console.log("pushChange", collectionName, change);
     if (!this.collections[collectionName]) return;
-    this.collections[collectionName].forEach((socketId) => {
+    this.collections[collectionName]["socketIds"].forEach((socketId) => {
       this.sockets[socketId].socket.emit(collectionName, change);
     });
   }
 }
 
-export default WatchingIOServer;
+export default MongoRealtimeIOServer;

@@ -29,7 +29,7 @@ class MongoRealtimeIOServer {
       // console.log("watchingClients", this);
       console.log("New client connected");
       socket.on("message", (message) => {
-        console.log("message received: " + message);
+        // console.log("message received: " + message);
         socket.broadcast.emit("message", message);
         // this.ioServer.clients.forEach((client) => {
         //   if (client !== socket && client.readyState === WebSocket.OPEN) {
@@ -42,11 +42,11 @@ class MongoRealtimeIOServer {
         this.watchCollection(collectionName, socket.id, socket);
       });
       socket.on("unwatch", ({ collectionName }) => {
-        console.log("unwatching collection", collectionName);
+        // console.log("unwatching collection", collectionName);
         this.unwatchCollection(collectionName, socket.id);
       });
       socket.on("disconnect", () => {
-        console.log(`User with socket ID ${socket.id} disconnected`);
+        // console.log(`User with socket ID ${socket.id} disconnected`);
         // Remove the socket from the connectedClients object when a client disconnects
         this.unregisterSocket(socket.id);
       });
@@ -96,10 +96,10 @@ class MongoRealtimeIOServer {
 
     const changeStream = this.db.collection(collectionName).watch();
 
-    console.log("registering changeStream for collection", collectionName);
+    // console.log("registering changeStream for collection", collectionName);
     changeStream.on("change", (change) => {
       // console.log("change", change);
-      console.log("change occurred in collection", collectionName);
+      // console.log("change occurred in collection", collectionName);
       this.pushChange(collectionName, change);
     });
 
@@ -107,7 +107,7 @@ class MongoRealtimeIOServer {
   }
 
   async _closeChangeStream(collectionName: string) {
-    console.log("unregistering changeStream for collection", collectionName);
+    // console.log("unregistering changeStream for collection", collectionName);
     await this.collections[collectionName]["changeStream"].close();
   }
 

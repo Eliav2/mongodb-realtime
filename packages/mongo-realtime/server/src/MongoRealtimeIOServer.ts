@@ -41,6 +41,10 @@ class MongoRealtimeIOServer {
         console.log("watching collection", collectionName);
         this.watchCollection(collectionName, socket.id, socket);
       });
+      socket.on("unwatch", ({ collectionName }) => {
+        console.log("unwatching collection", collectionName);
+        this.unwatchCollection(collectionName, socket.id);
+      });
       socket.on("disconnect", () => {
         console.log(`User with socket ID ${socket.id} disconnected`);
         // Remove the socket from the connectedClients object when a client disconnects
@@ -69,30 +73,42 @@ class MongoRealtimeIOServer {
     this.mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
     this.db = this.mongoClient.db();
     this.autoConfigureCollections = autoConfigureCollections;
+
+    // debug
+    // setInterval(() => {
+    //   console.log(
+    //     "watchingClients",
+    //     // this.collections,
+    //   );
+    // }, 2000);
   }
 
   async _openChangeStream(collectionName: string) {
-    await this.db.command({
-      collMod: collectionName,
-      validator: {},
-      changeStreamPreAndPostImages: {
-        enabled: true,
-      },
-    });
+    if (this.autoConfigureCollections) {
+      await this.db.command({
+        collMod: collectionName,
+        validator: {},
+        changeStreamPreAndPostImages: {
+          enabled: true,
+        },
+      });
+    }
 
     const changeStream = this.db.collection(collectionName).watch();
 
-    // console.log("registering changeStream for collection", collectionName);
+    console.log("registering changeStream for collection", collectionName);
     changeStream.on("change", (change) => {
       // console.log("change", change);
+      console.log("change occurred in collection", collectionName);
       this.pushChange(collectionName, change);
     });
 
     return changeStream;
   }
 
-  _closeChangeStream(collectionName: string) {
-    this.collections[collectionName]["changeStream"].close();
+  async _closeChangeStream(collectionName: string) {
+    console.log("unregistering changeStream for collection", collectionName);
+    await this.collections[collectionName]["changeStream"].close();
   }
 
   async watchCollection(
@@ -100,12 +116,6 @@ class MongoRealtimeIOServer {
     socketId: string,
     socket: Socket,
   ) {
-    // console.log(
-    //   "registering socketId",
-    //   socketId,
-    //   "for collection",
-    //   collectionName,
-    // );
     if (!this.collections[collectionName]) {
       this.collections[collectionName] = {
         socketIds: new Set(),
@@ -122,17 +132,22 @@ class MongoRealtimeIOServer {
     this.sockets[socketId].watchingOnCollections.add(collectionName);
   }
 
+  unwatchCollection(collectionName: string, socketId: string) {
+    if (!this.collections[collectionName]) return;
+    this.collections[collectionName]["socketIds"].delete(socketId);
+    // close change stream if no more sockets are watching
+    if (this.collections[collectionName]["socketIds"].size === 0) {
+      this._closeChangeStream(collectionName);
+      delete this.collections[collectionName];
+    }
+  }
+
   unregisterSocket(socketId: string) {
     console.log("unregistering socket", socketId);
     if (!this.sockets[socketId]) return;
     const collections = this.sockets[socketId].watchingOnCollections;
     collections.forEach((collectionName) => {
-      this.collections[collectionName]["socketIds"].delete(socketId);
-      // close change stream if no more sockets are watching
-      if (this.collections[collectionName]["socketIds"].size === 0) {
-        this._closeChangeStream(collectionName);
-        delete this.collections[collectionName];
-      }
+      this.unwatchCollection(collectionName, socketId);
     });
     delete this.sockets[socketId];
   }

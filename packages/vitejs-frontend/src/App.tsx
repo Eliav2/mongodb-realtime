@@ -18,6 +18,9 @@ const useWatchCollection = (collectionName: string) => {
     socket.on(collectionName, onCollection);
 
     return () => {
+      socket.emit("unwatch", {
+        collectionName,
+      });
       socket.off(collectionName, onCollection);
     };
   }, []);
@@ -28,7 +31,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useWatchCollection("users");
-  useWatchCollection("posts");
+  // useWatchCollection("posts");
 
   useEffect(() => {
     function onConnect() {

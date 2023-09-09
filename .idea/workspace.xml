@@ -4,45 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
+    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="seperated packages from demos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/app/api/users/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/app/api/users/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/app/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/public/next.svg" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/public/next.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/public/vercel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/public/vercel.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/tailwind.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/nextjs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/nextjs/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/watch.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/watch.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/watch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/watch.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/watchCollection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/src/watchCollection.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-backend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/.eslintrc.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/public/vite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/public/vite.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/assets/react.svg" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/assets/react.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/vite-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/tsconfig.node.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongo-realtime/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +45,7 @@
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime-listener/packages/mongo-realtime/server/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime-listener/demos/vitejs-backend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -119,7 +84,7 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="build-watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="build-watch" type="js.build_tools.npm" folderName="mongo-realtime-server" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/packages/mongo-realtime/server/package.json" />
       <command value="run" />
       <scripts>
@@ -162,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1694207169389</updated>
       <workItem from="1694207171732" duration="20533000" />
-      <workItem from="1694278324727" duration="6683000" />
+      <workItem from="1694278324727" duration="7276000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -252,7 +217,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694284778047</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="seperated packages from demos">
+      <option name="closed" value="true" />
+      <created>1694285054778</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694285054778</updated>
+    </task>
+    <task id="LOCAL-00013" summary="seperated packages from demos">
+      <option name="closed" value="true" />
+      <created>1694285092677</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694285092677</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +241,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="seperated packages from demos" />
+    <option name="LAST_COMMIT_MESSAGE" value="seperated packages from demos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

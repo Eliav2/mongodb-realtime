@@ -31,11 +31,6 @@ class MongoRealtimeIOServer {
       socket.on("message", (message) => {
         // console.log("message received: " + message);
         socket.broadcast.emit("message", message);
-        // this.ioServer.clients.forEach((client) => {
-        //   if (client !== socket && client.readyState === WebSocket.OPEN) {
-        //     client.send(message);
-        //   }
-        // });
       });
       socket.on("watch", ({ collectionName }) => {
         console.log("watching collection", collectionName);
@@ -154,6 +149,7 @@ class MongoRealtimeIOServer {
 
   pushChange(collectionName: string, change: any) {
     if (!this.collections[collectionName]) return;
+    // todo: check if its possible to somehow emit all events simultaneously instead iterating over them
     this.collections[collectionName]["socketIds"].forEach((socketId) => {
       this.sockets[socketId].socket.emit(collectionName, change);
     });

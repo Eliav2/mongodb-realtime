@@ -1,5 +1,5 @@
 {
-  "name": "@mongo-realtime/server",
+  "name": "@mongodb-realtime/server",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",

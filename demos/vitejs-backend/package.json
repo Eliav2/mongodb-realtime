@@ -23,6 +23,6 @@
     "mongodb": "^6.0.0",
     "socket.io": "^4.7.2",
     "ws": "^8.14.0",
-    "@mongo-realtime/server": "workspace:*"
+    "@mongodb-realtime/server": "workspace:*"
   }
 }

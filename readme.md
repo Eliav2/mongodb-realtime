@@ -11,7 +11,7 @@ The end goal is to enable real-time updates from your MongoDB instance to the cl
 
 This is implemented by using MongoDB's [Change Streams](https://docs.mongodb.com/manual/changeStreams/) and [Change Events](https://docs.mongodb.com/manual/reference/change-events/) on the db-->server and websockets from the server<-->client.
 This library consists of 3 packages:
- - [@mongodb-realtime/server](packages/mongodb-realtime/server/readme.md): A NodeJS server that listens to MongoDB's change streams and emits events to the client.
+ - [@mongodb-realtime/server](packages/server/readme.md): A NodeJS server that listens to MongoDB's change streams and emits events to the client.
  - [@mongodb-realtime/client-react](packages/mongodb-realtime/client/readme.md): A React integration for the client.
  - 
 

@@ -59,9 +59,9 @@ importers:
 
   demos/vitejs-backend:
     dependencies:
-      '@mongo-realtime/server':
+      '@mongodb-realtime/server':
         specifier: workspace:*
-        version: link:../../packages/mongo-realtime/server
+        version: link:../../packages/server
       '@types/express':
         specifier: ^4.17.17
         version: 4.17.17
@@ -134,7 +134,9 @@ importers:
         specifier: ^4.4.5
         version: 4.4.9(@types/node@20.5.9)
 
-  packages/mongo-realtime/server:
+  packages/client-react: {}
+
+  packages/server:
     dependencies:
       mongodb:
         specifier: ^6.0.0

@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="docs">
+    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/client-react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/mongodb-realtime/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +71,7 @@
       <recent name="$PROJECT_DIR$/packages/vitejs-backend/src/watchCollection.ts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$/demos" />
     </key>
   </component>
@@ -140,6 +148,7 @@
       <workItem from="1694207171732" duration="20533000" />
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
+      <workItem from="1694293628988" duration="178000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -261,18 +270,26 @@
       <option name="project" value="LOCAL" />
       <updated>1694289052797</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=".">
+      <option name="closed" value="true" />
+      <created>1694293689691</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694293689691</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="." />
     <MESSAGE value="seperated packages from demos" />
     <MESSAGE value="renamed from mongo-realtime to mongodb-realtime" />
     <MESSAGE value="docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

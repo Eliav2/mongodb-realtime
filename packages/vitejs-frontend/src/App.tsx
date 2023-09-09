@@ -6,9 +6,29 @@ const URL = "http://localhost:8080";
 
 export const socket = io(URL);
 
+const useWatchCollection = (collectionName: string) => {
+  console.log("useWatchCollection", collectionName);
+  useEffect(() => {
+    socket.emit("watch", {
+      collectionName,
+    });
+    const onCollection = (update: any) => {
+      console.log(`${collectionName} updated`, update);
+    };
+    socket.on(collectionName, onCollection);
+
+    return () => {
+      socket.off(collectionName, onCollection);
+    };
+  }, []);
+};
+
 function App() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [messages, setMessages] = useState([]);
+
+  useWatchCollection("users");
+  useWatchCollection("posts");
 
   useEffect(() => {
     function onConnect() {
@@ -23,24 +43,32 @@ function App() {
       setMessages((previous) => [...previous, value]);
     }
 
-    const onUsers = (users) => {
-      console.log("users updated", users);
-    };
-
-    socket.emit("watch", {
-      collectionName: "users",
-    });
-
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
     socket.on("message", onMessage);
-    socket.on("users", onUsers);
+
+    // socket.emit("watch", {
+    //   collectionName: "users",
+    // });
+    // const onUsers = (users) => {
+    //   console.log("users updated", users);
+    // };
+    // socket.on("users", onUsers);
+    //
+    // socket.emit("watch", {
+    //   collectionName: "posts",
+    // });
+    // const onPosts = (posts) => {
+    //   console.log("posts updated", posts);
+    // };
+    // socket.on("posts", onPosts);
 
     return () => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
       socket.off("foo", onMessage);
-      socket.off("users", onUsers);
+      // socket.off("users", onUsers);
+      // socket.off("posts", onUsers);
     };
   }, []);
 

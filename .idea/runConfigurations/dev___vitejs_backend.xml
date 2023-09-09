@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="dev - vitejs-backend" type="js.build_tools.npm">
-    <package-json value="$PROJECT_DIR$/packages/vitejs-backend/package.json" />
+    <package-json value="$PROJECT_DIR$/demos/vitejs-backend/package.json" />
     <command value="run" />
     <scripts>
       <script value="dev" />

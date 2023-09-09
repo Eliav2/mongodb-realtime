@@ -5,14 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/packages/vitejs-backend/src/watchCollection.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/WatchingClients.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/createServer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/mongo-realtime/server/src/watchCollection.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev___vitejs_front.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/client.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/watch.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-backend/src/watch.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/src/users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs-backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-backend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/.eslintrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/public/vite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/public/vite.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/assets/react.svg" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/assets/react.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/vitejs/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/vitejs-frontend/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-workspace.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +64,7 @@
     "WebServerToolWindowFactoryState": "false",
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/eliav/development/mongodb-realtime-listener/packages/mongo-realtime/server/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -49,7 +72,7 @@
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime-listener/packages/vitejs/node_modules/typescript/lib",
+    "ts.external.directory.path": "/home/eliav/development/mongodb-realtime-listener/packages/vitejs-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,6 +85,9 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/mongo-realtime/server/src" />
+    </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/packages/vitejs-backend/src/watchCollection.ts" />
     </key>
@@ -73,7 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Vitest.All Tests">
+  <component name="RunManager" selected="npm.dev - vitejs-frontend">
     <configuration name="All Tests" type="JavaScriptTestRunnerVitest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
@@ -82,11 +108,40 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
+    <configuration name="build-watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/mongo-realtime/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/mongo-realtime/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="npm.dev - vitejs-frontend" />
       <item itemvalue="npm.dev - vitejs-backend" />
-      <item itemvalue="npm.dev - vitejs-front" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.build-watch" />
       <item itemvalue="Vitest.All Tests" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev - vitejs-frontend" />
+        <item itemvalue="npm.build-watch" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,7 +151,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694207169389</updated>
-      <workItem from="1694207171732" duration="15188000" />
+      <workItem from="1694207171732" duration="19012000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -122,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694207341438</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".">
+      <option name="closed" value="true" />
+      <created>1694256869255</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694256869255</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,13 +200,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/vitejs-backend/src/server.ts</url>
-          <line>62</line>
+          <line>61</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/packages/vitejs-backend/src/server.ts</url>
-          <line>46</line>
+          <line>45</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>

@@ -8,7 +8,7 @@ import { Server, Socket } from "socket.io";
 const app = express();
 const httpServer = http.createServer(app);
 
-const io = new Server(httpServer, {
+const io = new Server({
   /* options */
   cors: {
     origin: "http://localhost:5173",
@@ -93,11 +93,6 @@ io.on("connection", (socket) => {
   socket.on("watch", ({ collectionName }) => {
     console.log("watching collection", collectionName);
     watchingClients.watchCollection(collectionName, socket.id, socket);
-    // io.clients.forEach((client) => {
-    //   if (client !== socket && client.readyState === WebSocket.OPEN) {
-    //     client.send(message);
-    //   }
-    // });
   });
   socket.on("disconnect", () => {
     console.log(`User with socket ID ${socket.id} disconnected`);
@@ -142,15 +137,13 @@ const initializeMongo = async () => {
   });
 };
 
-app.get("/mongo", async (req, res) => {
-  res.json(users);
-  console.log(users);
-});
-
 client.connect().then(async (client) => {
   initializeMongo();
 });
 
-httpServer.listen(8080, () => {
-  console.log("Server is running on http://localhost:8080");
-});
+io.listen(8080);
+
+// import { createServer } from "@mongo-realtime/server";
+//
+// const io = createServer({ mongoUri: "mongodb://localhost:27017" });
+// io.listen(8080);

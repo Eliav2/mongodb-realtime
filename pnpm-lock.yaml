@@ -12,6 +12,19 @@ importers:
         specifier: ^0.34.4
         version: 0.34.4
 
+  packages/mongo-realtime/server:
+    dependencies:
+      mongodb:
+        specifier: ^6.0.0
+        version: 6.0.0
+      socket.io:
+        specifier: ^4.7.2
+        version: 4.7.2
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
   packages/nextjs:
     dependencies:
       '@types/mongodb':
@@ -57,7 +70,41 @@ importers:
         specifier: ^8.14.0
         version: 8.14.0
 
-  packages/vitejs:
+  packages/vitejs-backend:
+    dependencies:
+      '@mongo-realtime/server':
+        specifier: workspace:*
+        version: link:../mongo-realtime/server
+      '@types/express':
+        specifier: ^4.17.17
+        version: 4.17.17
+      '@types/ws':
+        specifier: ^8.5.5
+        version: 8.5.5
+      express:
+        specifier: ^4.18.2
+        version: 4.18.2
+      http:
+        specifier: 0.0.1-security
+        version: 0.0.1-security
+      mongodb:
+        specifier: ^6.0.0
+        version: 6.0.0
+      socket.io:
+        specifier: ^4.7.2
+        version: 4.7.2
+      ws:
+        specifier: ^8.14.0
+        version: 8.14.0
+    devDependencies:
+      tsx:
+        specifier: ^3.12.8
+        version: 3.12.8
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
+  packages/vitejs-frontend:
     dependencies:
       react:
         specifier: ^18.2.0
@@ -99,37 +146,6 @@ importers:
       vite:
         specifier: ^4.4.5
         version: 4.4.9(@types/node@20.5.9)
-
-  packages/vitejs-backend:
-    dependencies:
-      '@types/express':
-        specifier: ^4.17.17
-        version: 4.17.17
-      '@types/ws':
-        specifier: ^8.5.5
-        version: 8.5.5
-      express:
-        specifier: ^4.18.2
-        version: 4.18.2
-      http:
-        specifier: 0.0.1-security
-        version: 0.0.1-security
-      mongodb:
-        specifier: ^6.0.0
-        version: 6.0.0
-      socket.io:
-        specifier: ^4.7.2
-        version: 4.7.2
-      ws:
-        specifier: ^8.14.0
-        version: 8.14.0
-    devDependencies:
-      tsx:
-        specifier: ^3.12.8
-        version: 3.12.8
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
 
 packages:
 

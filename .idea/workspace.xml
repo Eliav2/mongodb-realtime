@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
+    <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment="replace and delete are supported">
+      <change afterPath="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/client-react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +85,26 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.localhost:5173">
+  <component name="RunManager" selected="Vitest.All Tests">
     <configuration name="All Tests" type="JavaScriptTestRunnerVitest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="insert operation" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$/packages/client-react" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.test.ts" />
+      <test-names>
+        <test-name value="insert operation" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="localhost:5173" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5173/">
@@ -120,9 +135,11 @@
       <item itemvalue="npm.run" />
       <item itemvalue="npm.run (1)" />
       <item itemvalue="Vitest.All Tests" />
+      <item itemvalue="Vitest.insert operation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Vitest.insert operation" />
         <item itemvalue="JavaScript Debug.localhost:5173" />
       </list>
     </recent_temporary>
@@ -139,7 +156,7 @@
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
       <workItem from="1694293628988" duration="16853000" />
-      <workItem from="1694335896426" duration="5595000" />
+      <workItem from="1694335896426" duration="9643000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -349,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694341547529</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="replace and delete are supported">
+      <option name="closed" value="true" />
+      <created>1694342679803</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1694342679803</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +385,7 @@
     <MESSAGE value="renamed from mongo-realtime to mongodb-realtime" />
     <MESSAGE value="docs" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="replace and delete are supported" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace and delete are supported" />
   </component>
 </project>

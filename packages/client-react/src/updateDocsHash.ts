@@ -1,4 +1,4 @@
-import { ChangeStreamDocument, DocWithId } from "shared/types";
+import { ChangeStreamDocument, DocWithId, Document } from "shared/types";
 
 export const updateDocsHash = <T extends Document = Document>(
   docs: {
@@ -13,35 +13,39 @@ export const updateDocsHash = <T extends Document = Document>(
     case "insert":
       // Handle insert operation
       const insertedDocument = update.fullDocument;
-      docs.add(insertedDocument);
-      console.log("Inserted Document:", insertedDocument);
+      docs[update.documentKey._id as any] = update.fullDocument;
+      // console.log("Inserted Document:", insertedDocument);
       break;
 
     case "update":
       // Handle update operation
-      console.log("updateing", docs);
       const updatedId = update.documentKey._id;
-      console.log("updatedId", updatedId);
 
-      const { removedFields = [], updatedFields: updatedFields = {} } =
-        update.updateDescription;
-      // Get the updated fields from updateDescription
+      const {
+        removedFields = [],
+        updatedFields: updatedFields = {},
+        truncatedArrays,
+        disambiguatedPaths,
+      } = update.updateDescription;
 
-      // Find the document in the set
-      // const updatedDoc = [...docs].find(
-      //   (item) => item._id._data === updatedId,
-      // );
       const updatedDoc = docs[updatedId as any];
 
       // If the document exists in the set, update its fields
       if (updatedDoc) {
-        // console.log("updatedDoc", updatedDoc);
-        // console.log("updatedFields", updatedFields);
         Object.assign(updatedDoc, updatedFields);
         for (const prop of removedFields) {
           delete (updatedDoc as any)[prop];
         }
-        // console.log("Updated Document:", updatedDoc);
+        // Handle truncatedArrays operation
+        if (truncatedArrays) {
+          for (const field of truncatedArrays) {
+            if (updatedDoc[field] && Array.isArray(updatedDoc[field])) {
+              // Apply your logic to handle truncated arrays here
+              // For example, you might want to trim the array to a specific length
+              updatedDoc[field] = updatedDoc[field].slice(0, 3); // This keeps only the first 3 elements
+            }
+          }
+        }
       } else {
         console.log("Document not found in the Set:", updatedId);
       }

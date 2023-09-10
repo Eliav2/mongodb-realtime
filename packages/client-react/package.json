@@ -18,10 +18,12 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.21"
+    "@types/react": "^18.2.21",
+    "mongodb": "^6.0.0",
+    "@mongodb-realtime/server": "workspace:*"
   },
   "dependencies": {
-    "socket.io-client": "^4.7.2",
-    "shared": "workspace:*"
+    "shared": "workspace:*",
+    "socket.io-client": "^4.7.2"
   }
 }

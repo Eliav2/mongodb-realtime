@@ -8,7 +8,7 @@ export const updateDocsHash = <T extends Document = Document>(
 ): {
   [key: string]: T;
 } => {
-  console.log(docs, update);
+  console.log("recived update", update, "on", docs);
   switch (update.operationType) {
     case "insert":
       // Handle insert operation
@@ -20,22 +20,28 @@ export const updateDocsHash = <T extends Document = Document>(
     case "update":
       // Handle update operation
       console.log("updateing", docs);
-      const updatedDocument = update.updateDescription;
       const updatedId = update.documentKey._id;
+      console.log("updatedId", updatedId);
 
+      const { removedFields = [], updatedFields: updatedFields = {} } =
+        update.updateDescription;
       // Get the updated fields from updateDescription
-      const updatedFields = update.updateDescription?.updatedFields || {};
 
       // Find the document in the set
-      // const updatedDocInSet = [...docs].find(
+      // const updatedDoc = [...docs].find(
       //   (item) => item._id._data === updatedId,
       // );
-      const updatedDocInSet = docs["updatedId"];
+      const updatedDoc = docs[updatedId as any];
 
       // If the document exists in the set, update its fields
-      if (updatedDocInSet) {
-        Object.assign(updatedDocInSet, updatedFields);
-        console.log("Updated Document:", updatedDocument);
+      if (updatedDoc) {
+        // console.log("updatedDoc", updatedDoc);
+        // console.log("updatedFields", updatedFields);
+        Object.assign(updatedDoc, updatedFields);
+        for (const prop of removedFields) {
+          delete (updatedDoc as any)[prop];
+        }
+        // console.log("Updated Document:", updatedDoc);
       } else {
         console.log("Document not found in the Set:", updatedId);
       }

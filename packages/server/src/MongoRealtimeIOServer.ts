@@ -31,6 +31,35 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
 
   private autoConfigureCollections: boolean;
 
+  constructor({
+    mongoUri,
+    mongoDriverOptions = {},
+    ServerOptions = {},
+    autoConfigureCollections = false,
+  }: {
+    mongoUri: string;
+    mongoDriverOptions?: MongoClientOptions;
+    ServerOptions?: any;
+
+    // should configure each watched collection automatically with 'changeStreamPreAndPostImages' https://www.mongodb.com/docs/manual/changeStreams/#change-streams-with-document-pre--and-post-images
+    autoConfigureCollections?: boolean;
+  }) {
+    this.collections = {};
+    this.sockets = {};
+    this.ioServer = this.initIOServer(ServerOptions);
+    this.mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
+    this.db = this.mongoClient.db();
+    this.autoConfigureCollections = autoConfigureCollections;
+
+    // debug
+    // setInterval(() => {
+    //   console.log(
+    //     "watchingClients",
+    //     // this.collections,
+    //   );
+    // }, 2000);
+  }
+
   initIOServer(ServerOptions?: any) {
     const io = new IOServer<Client2ServerEvents>(ServerOptions);
 
@@ -59,35 +88,6 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
       });
     });
     return io;
-  }
-
-  constructor({
-    mongoUri,
-    mongoDriverOptions = {},
-    ServerOptions = {},
-    autoConfigureCollections = false,
-  }: {
-    mongoUri: string;
-    mongoDriverOptions?: MongoClientOptions;
-    ServerOptions?: any;
-
-    // should configure each watched collection automatically with 'changeStreamPreAndPostImages' https://www.mongodb.com/docs/manual/changeStreams/#change-streams-with-document-pre--and-post-images
-    autoConfigureCollections?: boolean;
-  }) {
-    this.collections = {};
-    this.sockets = {};
-    this.ioServer = this.initIOServer(ServerOptions);
-    this.mongoClient = new MongoClient(mongoUri, mongoDriverOptions);
-    this.db = this.mongoClient.db();
-    this.autoConfigureCollections = autoConfigureCollections;
-
-    // debug
-    // setInterval(() => {
-    //   console.log(
-    //     "watchingClients",
-    //     // this.collections,
-    //   );
-    // }, 2000);
   }
 
   _openChangeStream(collectionName: string) {

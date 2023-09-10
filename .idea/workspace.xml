@@ -92,31 +92,11 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="build (1)" type="js.build_tools.npm" folderName="root" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="build-watch (1)" type="js.build_tools.npm" folderName="root" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build-watch" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="npm.dev - vitejs-frontend" />
-      <item itemvalue="npm.dev - vitejs-backend" />
       <item itemvalue="npm.build-watch (1)" />
       <item itemvalue="npm.build (1)" />
+      <item itemvalue="npm.dev - vitejs-frontend" />
+      <item itemvalue="npm.dev - vitejs-backend" />
       <item itemvalue="Vitest.All Tests" />
     </list>
     <recent_temporary>

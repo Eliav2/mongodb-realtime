@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94f420a-efca-4f83-ab85-f9c074e005ad" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/mongodb-realtime.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mongodb-realtime.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/demos/vitejs-frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/updateDocsHash.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/client-react/src/useWatchCollection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/MongoRealtimeIOServer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +47,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "prettierjs.PrettierConfiguration.Package": "/home/eliav/.nvm/versions/node/v18.16.0/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.startup.tasks",
+    "settings.editor.selected.configurable": "preferences.general",
     "ts.external.directory.path": "/home/eliav/development/mongodb-realtime/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -141,7 +139,7 @@
       <workItem from="1694278324727" duration="12541000" />
       <workItem from="1694292970620" duration="317000" />
       <workItem from="1694293628988" duration="16853000" />
-      <workItem from="1694335896426" duration="4710000" />
+      <workItem from="1694335896426" duration="5595000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <option name="closed" value="true" />
@@ -343,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694335972570</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary=".">
+      <option name="closed" value="true" />
+      <created>1694341547529</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1694341547529</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

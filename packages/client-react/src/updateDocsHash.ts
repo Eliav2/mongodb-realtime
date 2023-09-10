@@ -51,23 +51,14 @@ export const updateDocsHash = <T extends Document = Document>(
     case "replace":
       // Handle replace operation
       const replacedDocument = update.fullDocument;
-      docs.forEach((item) => {
-        if (item._id === replacedDocument._id) {
-          docs.delete(item);
-          docs.add(replacedDocument);
-        }
-      });
+      docs[update.documentKey._id as any] = update.fullDocument;
       console.log("Replaced Document:", replacedDocument);
       break;
 
     case "delete":
       // Handle delete operation
       const deletedId = update.documentKey._id;
-      docs.forEach((item) => {
-        if (item._id === deletedId) {
-          docs.delete(item);
-        }
-      });
+      delete docs[update.documentKey._id as any];
       console.log("Deleted Document ID:", deletedId);
       break;
 

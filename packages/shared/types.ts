@@ -1,9 +1,18 @@
-import { ChangeStreamDocument, Filter } from "mongodb";
+import { ChangeStreamDocument, Filter, Document } from "mongodb";
 
-export type Client2ServerEvents<TSchema extends Document = Document> = {
-  watch: (args: { collectionName: string; filter?: Filter<TSchema> }) => void;
+export type Client2ServerEvents = {
+  watch: <T extends Document = Document>(args: {
+    collectionName: string;
+    filter?: Filter<T>;
+  }) => void;
   unwatch: (args: { collectionName: string }) => void;
 };
-export type Server2ClientEvents<TSchema extends Document = Document> = {
-  [event: `update:${string}`]: (change: ChangeStreamDocument) => void;
+export type Server2ClientEvents = {
+  [event: `update:${string}`]: <T extends Document = Document>(
+    change: ChangeStreamDocument<T>,
+  ) => void;
+} & {
+  [event: `first-fetch:${string}`]: <T extends Document = Document>(
+    documents: T[],
+  ) => void;
 };

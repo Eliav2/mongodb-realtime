@@ -8,14 +8,7 @@ import {
   MongoClient,
   MongoClientOptions,
 } from "mongodb";
-
-export type Client2ServerEvents<TSchema extends Document = Document> = {
-  watch: (args: { collectionName: string; filter?: Filter<TSchema> }) => void;
-  unwatch: (args: { collectionName: string }) => void;
-};
-export type Server2ClientEvents<TSchema extends Document = Document> = {
-  [event: `update:${string}`]: (change: ChangeStreamDocument) => void;
-};
+import { Client2ServerEvents, Server2ClientEvents } from "shared/types";
 
 class MongoRealtimeIOServer<TSchema extends Document = Document> {
   // store a map that says per collection which socket is watching it
@@ -58,7 +51,7 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
       // socket.on("disconnecting", () => {
       //   console.log("disconnecting", socket.rooms); // the Set contains at least the socket ID
       // });
-      socket.on("disconnecting", () => {
+      socket.on("disconnect", () => {
         // console.log(`User with socket ID ${socket.id} disconnected`);
         // Remove the socket from the connectedClients object when a client disconnects
         console.log("socket disconnected", socket.id);
@@ -144,6 +137,16 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
       };
     }
     this.sockets[socketId].watchingOnCollections.add(collectionName);
+
+    this.db
+      .collection(collectionName)
+      .find()
+      .toArray()
+      .then((docs) => {
+        socket.emit(`first-fetch:${collectionName}`, docs);
+      });
+    //
+
     // console.log("watchCollection end", this.collections);
   }
 

@@ -4,23 +4,19 @@ import { useEffect } from "react";
 export const useWatchCollection = (collectionName: string) => {
   const socket = useMongoRealtimeProvider();
   useEffect(() => {
-    console.log("effect");
-
-    console.log("watching", collectionName);
     socket.emit("watch", {
       collectionName,
     });
     const onCollection = (update: any) => {
       console.log(`${collectionName} updated`, update);
     };
-    socket.on(collectionName, onCollection);
+    socket.on(`update:${collectionName}`, onCollection);
 
     return () => {
-      console.log("uneffect");
       socket.emit("unwatch", {
         collectionName,
       });
-      socket.off(collectionName, onCollection);
+      socket.off(`update:${collectionName}`, onCollection);
     };
   }, []);
 };

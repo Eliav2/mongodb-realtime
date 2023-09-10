@@ -1,6 +1,7 @@
 import { Server as IOServer, Socket } from "socket.io";
 import {
   ChangeStream,
+  ChangeStreamDocument,
   Db,
   Document,
   Filter,
@@ -12,7 +13,9 @@ export type Client2ServerEvents<TSchema extends Document = Document> = {
   watch: (args: { collectionName: string; filter?: Filter<TSchema> }) => void;
   unwatch: (args: { collectionName: string }) => void;
 };
-export type Server2ClientEvents<TSchema extends Document = Document> = {};
+export type Server2ClientEvents<TSchema extends Document = Document> = {
+  [event: `update:${string}`]: (change: ChangeStreamDocument) => void;
+};
 
 class MongoRealtimeIOServer<TSchema extends Document = Document> {
   // store a map that says per collection which socket is watching it
@@ -26,7 +29,7 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
   sockets: {
     [socketId: string]: {
       watchingOnCollections: Set<string>;
-      socket: Socket;
+      socket: Socket<Client2ServerEvents, Server2ClientEvents>;
     };
   };
   ioServer: IOServer;
@@ -122,7 +125,11 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
     await this.collections[collectionName]["changeStream"].close();
   }
 
-  watchCollection(collectionName: string, socketId: string, socket: Socket) {
+  watchCollection(
+    collectionName: string,
+    socketId: string,
+    socket: Socket<Client2ServerEvents, Server2ClientEvents>,
+  ) {
     if (!this.collections[collectionName]) {
       this.collections[collectionName] = {
         socketIds: new Set(),
@@ -160,11 +167,11 @@ class MongoRealtimeIOServer<TSchema extends Document = Document> {
     delete this.sockets[socketId];
   }
 
-  pushChange(collectionName: string, change: any) {
+  pushChange(collectionName: string, change: ChangeStreamDocument) {
     if (!this.collections[collectionName]) return;
-    // todo: check if its possible to somehow emit all events simultaneously instead iterating over them
+    // todo: check if its possible to somehow emit events to all clients simultaneously instead iterating over them
     this.collections[collectionName]["socketIds"].forEach((socketId) => {
-      this.sockets[socketId].socket.emit(collectionName, change);
+      this.sockets[socketId].socket.emit(`update:${collectionName}`, change);
     });
   }
 }

@@ -1,9 +1,15 @@
 import React from "react";
 import { io, Socket } from "socket.io-client";
+import type { Client2ServerEvents, Server2ClientEvents } from "shared/types";
 
-export type MongoRealtimeContextType = Socket | null;
+export type MongoRealtimeContextType = Socket<
+  Server2ClientEvents,
+  Client2ServerEvents
+> | null;
+
 export const MongoRealtimeContext =
   React.createContext<MongoRealtimeContextType>(null);
+
 export const MongoRealtimeProvider: React.FC<{
   url: string;
   children: React.ReactNode;
@@ -15,12 +21,13 @@ export const MongoRealtimeProvider: React.FC<{
     </MongoRealtimeContext.Provider>
   );
 };
-export const useMongoRealtimeProvider: () => Socket = () => {
-  const context = React.useContext(MongoRealtimeContext);
-  if (!context) {
-    throw new Error(
-      "useMongoRealtimeProvider must be used within a MongoRealtimeProvider",
-    );
-  }
-  return context;
-};
+export const useMongoRealtimeProvider: () => NonNullable<MongoRealtimeContextType> =
+  () => {
+    const context = React.useContext(MongoRealtimeContext);
+    if (!context) {
+      throw new Error(
+        "useMongoRealtimeProvider must be used within a MongoRealtimeProvider",
+      );
+    }
+    return context;
+  };
